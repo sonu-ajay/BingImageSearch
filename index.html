@@ -1,0 +1,51 @@
+<html>
+   <head> 
+    <script src="https://unpkg.com/vue"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+     <script>
+      function getImages() {
+
+                $.ajax({
+                    type: "GET",
+                    url: 'http://localhost:8000/bing/animals,birds/25/25',
+                    data: "{}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        //alert('success');
+
+                        alert(data.NextOffset)
+
+                        // $.each(data, function (i, theItem) {
+                        //     var combo = document.getElementById("cboFastBikes");
+                        //     var option = document.createElement("option");
+                        //     option.text = theItem.toString();
+                        //     option.value = theItem.toString();
+                        //     try {
+                        //         //alert('success add combo');
+                        //         combo.add(option, null); // Other browsers
+                        //     }
+                        //     catch (error) {
+                        //         alert('error found');
+                        //         combo.add(option); // really old browser
+                        //     }
+
+                        // });
+                    },
+                    error: function (msg, url, line) {
+                        alert('error trapped in error: function(msg, url, line)');
+                        alert('msg = ' + msg + ', url = ' + url + ', line = ' + line);
+
+                    }
+                });
+    }
+    </script>
+   </head>
+   <body>
+      <button onclick="javascript:getImages();">Show Match</button>
+   </body>
+</html>
