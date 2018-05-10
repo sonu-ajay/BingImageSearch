@@ -43,7 +43,7 @@ func GetBingImages(w http.ResponseWriter, r *http.Request) {
 
 //GetPage returns ImageResult
 func GetPage(searchQuery string, pagesize int, offSet int) (*ImageResult, error) {
-	apiKey := "3cbc13236b2c4ee684fb2de927c2f685"
+	apiKey := "_API_KEY"
 
 	url := fmt.Sprintf("https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=%s&mkt=en-US&SafeSearch=strict&aspect=all&count=%d&offset=%d", searchQuery, pagesize, offSet)
 	req, err := http.NewRequest("GET", url, nil)
